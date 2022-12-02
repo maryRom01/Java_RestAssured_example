@@ -1,0 +1,10 @@
+# Default ignored files
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+target/
+allure-results/
