@@ -7,11 +7,10 @@ import util.RestAssuredUtil;
 import util.TestUtil;
 
 public class BaseTest {
-    public Response response = null;
-    public JsonPath jsonPath = null;
-
-    RestAssuredUtil utilsRestAssured = new RestAssuredUtil();
-    TestUtil utilsTest = new TestUtil();
+    protected Response response = null;
+    protected JsonPath jsonPath = null;
+    protected RestAssuredUtil utilsRestAssured = new RestAssuredUtil();
+    protected TestUtil utilsTest = new TestUtil();
 
     @BeforeClass
     public void setup() {

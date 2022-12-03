@@ -7,9 +7,10 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class RestAssuredUtil {
+    static PropertiesController propertiesController = new PropertiesController();
 
     public static void setBaseURI() {
-        RestAssured.baseURI = "https://generator.swagger.io/";
+        RestAssured.baseURI = propertiesController.getProperty("sample.api.base.url");
     }
 
     public static void setBasePath(String basePath) {
@@ -30,10 +31,6 @@ public class RestAssuredUtil {
 
     public static Response getResponse(String path) {
         return given().get(path);
-    }
-
-    public static Response getResponse() {
-        return given().get();
     }
 
     public static JsonPath getJsonPath(Response response) {
