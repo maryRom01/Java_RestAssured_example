@@ -1,10 +1,12 @@
+import com.beust.jcommander.Parameter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import util.RestAssuredUtil;
 import util.TestUtil;
+
+import java.util.ArrayList;
 
 public class BaseTest {
     protected Response response = null;
@@ -12,9 +14,11 @@ public class BaseTest {
     protected RestAssuredUtil utilsRestAssured = new RestAssuredUtil();
     protected TestUtil utilsTest = new TestUtil();
 
+
     @BeforeClass
     public void setup() {
-        utilsRestAssured.setBaseURI();
+        String mode = utilsRestAssured.getMode();
+        utilsRestAssured.setBaseURI(mode);
         utilsRestAssured.setBasePath("api");
         utilsRestAssured.setContentType(ContentType.JSON);
     }

@@ -14,9 +14,8 @@ public class PropertiesController {
         return properties.getProperty("mode");
     }
 
-    public String getProperty(String path) {
-        String mode = getMode();
-        String pathToEnvironmentFile = String.format("src/main/resources/environment/%s.properties", mode);
+    public String getProperty(String mode, String path) {
+        String pathToEnvironmentFile = String.format("src/main/resources/environment/%s/%s.properties", mode, mode);
         Properties properties = new Properties();
         properties = loadProperties(properties, pathToEnvironmentFile);
         return properties.getProperty(path);

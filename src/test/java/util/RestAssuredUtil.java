@@ -7,10 +7,15 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
 public class RestAssuredUtil {
-    static PropertiesController propertiesController = new PropertiesController();
 
-    public void setBaseURI() {
-        RestAssured.baseURI = propertiesController.getProperty("sample.api.base.url");
+    public String getMode() {
+        PropertiesController propertiesController = new PropertiesController();
+        return propertiesController.getMode();
+    }
+
+    public void setBaseURI(String mode) {
+        PropertiesController propertiesController = new PropertiesController();
+        RestAssured.baseURI = propertiesController.getProperty(mode, "sample.api.base.url");
     }
 
     public static void setBasePath(String basePath) {
