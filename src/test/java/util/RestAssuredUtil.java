@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 public class RestAssuredUtil {
     static PropertiesController propertiesController = new PropertiesController();
 
-    public static void setBaseURI() {
+    public void setBaseURI() {
         RestAssured.baseURI = propertiesController.getProperty("sample.api.base.url");
     }
 
