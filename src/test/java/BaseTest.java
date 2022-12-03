@@ -17,7 +17,12 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        String mode = utilsRestAssured.getMode();
+        String mode = "";
+        if(System.getProperty("propertyMode") == null) {
+           mode  = utilsRestAssured.getMode();
+        } else {
+            mode = System.getProperty("propertyMode");
+        }
         utilsRestAssured.setBaseURI(mode);
         utilsRestAssured.setBasePath("api");
         utilsRestAssured.setContentType(ContentType.JSON);
